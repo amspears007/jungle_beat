@@ -6,6 +6,6 @@ RSpec.describe Node do
 
     expect(node).to be_an_instance_of(Node)
     expect(node.data).to eq("plop")
-    expect(node.next_node).to eq(nil)
+    expect(node.next_node).to be_nil
   end
 end
