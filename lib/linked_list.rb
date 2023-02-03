@@ -1,12 +1,20 @@
 class LinkedList
   attr_reader :head
 
-  def initialize()
+  def initialize(head = nil)
     @head = nil
   end
 
-  def append(sound)
-    
+  def append(data)
+    @head = Node.new(data)
+    data
+  end
 
+  def count
+    @head.data.split.count
+  end
+
+  def to_string
+    @head.data
   end
 end
