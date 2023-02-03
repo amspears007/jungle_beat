@@ -5,9 +5,18 @@ class LinkedList
     @head = nil
   end
 
-  def append(data)
-    @head = Node.new(data)
-    data
+  def append(sound)
+    if @head.nil?
+      @head = Node.new(sound)
+    else
+      current_node = @head
+      new_node = current_node.next_node 
+      while current_node.next_node != nil
+          current_node = current_node.next_node
+        end
+      new_node = Node.new(sound)
+    end     
+    sound
   end
 
   def count
