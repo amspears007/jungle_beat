@@ -1,4 +1,4 @@
-require './lib/node'
+require 'spec_helper'
 
 RSpec.describe Node do
   it 'is an instance of node and has a slot for data and next node' do
