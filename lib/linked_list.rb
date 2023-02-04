@@ -40,7 +40,7 @@ class LinkedList
     last_node = head
     while last_node.next_node != nil
       sound_string << last_node.data + " "
-      last_node = last_node.next_node 
+      last_node = last_node.next_node
     end
       sound_string << last_node.data
   end
