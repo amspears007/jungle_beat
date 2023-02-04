@@ -15,7 +15,6 @@ class LinkedList
         last_node = last_node.next_node
       end
       last_node.next_node = new_node
-      # require 'pry'; binding.pry
     end     
     sound
   end
@@ -29,6 +28,19 @@ class LinkedList
       @head = Node.new(sound)
       new_head = @head
       @head.next_node = old_head
+    end
+  end
+
+  def insert(position, sound)
+    if @head.nil?
+      @head = Node.new(sound)
+    else
+      last_node = @head
+      new_node = Node.new(sound)
+      (position -1).times do
+      last_node = last_node.next_node
+      end
+      last_node.next_node = new_node
     end
   end
 
