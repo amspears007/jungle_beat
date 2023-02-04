@@ -28,16 +28,7 @@ class LinkedList
       old_head = @head
       @head = Node.new(sound)
       new_head = @head
-      new_head.next_node = @head
-      # require 'pry'; binding.pry
       @head.next_node = old_head
-      # require 'pry'; binding.pry
-      # last_node = @head
-      # new_node = Node.new(sound)
-      # while last_node.next_node != nil
-      #   last_node = last_node.next_node
-      # end
-      # last_node.next_node = new_node
     end
   end
 

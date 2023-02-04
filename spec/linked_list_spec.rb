@@ -58,9 +58,15 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("plop")
     
     list.prepend("dop")
-    #expect(list.prepend("dop")).to eq("dop")
 
     expect(list.to_string).to eq("dop plop")
 
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop plop suu")
+
+    list.prepend("wee")
+
+    expect(list.to_string).to eq("wee dop plop suu")
   end
 end
