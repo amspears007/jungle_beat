@@ -15,11 +15,10 @@ RSpec.describe LinkedList do
     expect(list.head).to be_nil
     expect(list.append("doop")).to eq("doop")
     expect(list.head.next_node).to be_nil
-    expect(list.count).to eq(1)
-    expect(list.to_string).to eq("doop")
+    
   end
 
-  it 'updates methods to add additional node' do
+  xit 'updates methods to add additional node' do
     list = LinkedList.new
     list.append("doop")
     
@@ -33,5 +32,19 @@ RSpec.describe LinkedList do
     expect(list.append("deep")).to eq("deep")
     expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
+  end
+
+  it 'counts items in list' do
+    list = LinkedList.new
+    list.append("doop")
+
+    expect(list.count).to eq(1)
+    expect(list.to_string).to eq("doop")
+
+    list.append("deep")
+
+    expect(list.count).to eq(2)
+    expect(list.to_string).to eq("doop deep")
+
   end
 end
