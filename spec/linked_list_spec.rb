@@ -50,4 +50,17 @@ RSpec.describe LinkedList do
 
     expect(list.to_string).to eq("doop deep yes")
   end
+
+  it 'adds node to beginning of the list' do
+    list = LinkedList.new
+    list.append("plop")
+    
+    expect(list.to_string).to eq("plop")
+    
+    list.prepend("dop")
+    #expect(list.prepend("dop")).to eq("dop")
+
+    expect(list.to_string).to eq("dop plop")
+
+  end
 end

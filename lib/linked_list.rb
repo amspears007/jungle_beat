@@ -20,6 +20,27 @@ class LinkedList
     sound
   end
 
+  def prepend(sound)
+    #Add node to beginning of list
+    if @head.nil?
+      @head = Node.new(sound)
+    else
+      old_head = @head
+      @head = Node.new(sound)
+      new_head = @head
+      new_head.next_node = @head
+      # require 'pry'; binding.pry
+      @head.next_node = old_head
+      # require 'pry'; binding.pry
+      # last_node = @head
+      # new_node = Node.new(sound)
+      # while last_node.next_node != nil
+      #   last_node = last_node.next_node
+      # end
+      # last_node.next_node = new_node
+    end
+  end
+
   def count
     count = 1
     if @head.nil?
@@ -44,4 +65,6 @@ class LinkedList
     end
       sound_string << last_node.data
   end
+
+  
 end
