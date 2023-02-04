@@ -37,10 +37,11 @@ class LinkedList
     else
       last_node = @head
       new_node = Node.new(sound)
-      (position -1).times do
-      last_node = last_node.next_node
-      end
-      last_node.next_node = new_node
+      (position - 1).times do
+       last_node = last_node.next_node 
+    end
+    new_node.next_node = last_node.next_node
+    last_node.next_node = new_node
     end
   end
 
