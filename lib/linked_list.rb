@@ -9,12 +9,12 @@ class LinkedList
     if @head.nil?
       @head = Node.new(sound)
     else
-      current_node = @head
+      last_node = @head
       new_node = Node.new(sound)
-      while current_node.next_node != nil
-        current_node = current_node.next_node
+      while last_node.next_node != nil
+        last_node = last_node.next_node
       end
-      current_node.next_node = new_node
+      last_node.next_node = new_node
       # require 'pry'; binding.pry
     end     
     sound
@@ -24,16 +24,20 @@ class LinkedList
     count = 1
     if @head.nil?
       count = 0
-    else current_node = @head
-      while current_node.next_node != nil
+    else
+       #Looking for end of list +>(last_node.next_node = nil)
+      last_node = @head
+      while last_node.next_node != nil
         count += 1
-        current_node = current_node.next_node
+        last_node = last_node.next_node
       end
     end
     count
   end
 
   def to_string
+    sounds = ""
+    sounds << @head.data
     @head.data
   end
 end
