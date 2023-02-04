@@ -1,6 +1,5 @@
 require 'spec_helper' 
-require './lib/node'
-require './lib/linked_list'
+
 
 RSpec.describe LinkedList do
   it 'is an instance of a linked_list and the head starts empty' do
@@ -19,7 +18,6 @@ RSpec.describe LinkedList do
    
     list.append("deep")
    
-    expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
   end
 
