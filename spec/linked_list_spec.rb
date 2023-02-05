@@ -80,5 +80,27 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("dop woo plop")
   end
 
+  xit 'can find and return elements' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.append("suu")
 
+    expect(list.to_string).to eq("dop woo plop suu")
+
+    list.find(1, 2).to eq("woo plop")
+  end
+
+  it 'returns true or false whether the supplied value is in the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+    expect(list.includes?("dop")).to eq(true)
+    expect(list.includes?("what")).to eq(false)
+  end
 end

@@ -40,8 +40,19 @@ class LinkedList
       (position - 1).times do
        last_node = last_node.next_node 
     end
+    # require 'pry'; binding.pry
     new_node.next_node = last_node.next_node
     last_node.next_node = new_node
+    end
+  end
+
+  # def find(position, number)
+
+  # end
+
+  def includes?(sound)
+    if to_string.include?(sound)
+      true
     end
   end
 
