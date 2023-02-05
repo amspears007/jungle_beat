@@ -1,6 +1,5 @@
 require 'spec_helper' 
-require './lib/node'
-require './lib/linked_list'
+
 
 RSpec.describe LinkedList do
   it 'is an instance of a linked_list and the head starts empty' do
@@ -19,7 +18,6 @@ RSpec.describe LinkedList do
    
     list.append("deep")
    
-    expect(list.count).to eq(2)
     expect(list.to_string).to eq("doop deep")
   end
 
@@ -51,5 +49,70 @@ RSpec.describe LinkedList do
     list.append("yes")
 
     expect(list.to_string).to eq("doop deep yes")
+  end
+
+  it 'adds node to beginning of the list' do
+    list = LinkedList.new
+    list.append("plop")
+    
+    expect(list.to_string).to eq("plop")
+    
+    list.prepend("dop")
+
+    expect(list.to_string).to eq("dop plop")
+
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop plop suu")
+
+    list.prepend("wee")
+
+    expect(list.to_string).to eq("wee dop plop suu")
+    expect(list.count).to eq(4)
+  end
+
+  it 'can insert one or more elements at a given position in the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    
+    expect(list.to_string).to eq("dop woo plop")
+  end
+
+  it 'can find and return elements' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+
+    expect(list.find(1, 2)).to eq("woo plop")
+  end
+
+  it 'returns true or false whether the supplied value is in the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+    expect(list.includes?("dop")).to eq(true)
+    expect(list.includes?("what")).to eq(false)
+  end
+
+  it 'removes the last element from the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.append("suu")
+
+    expect(list.to_string).to eq("dop woo plop suu")
+    expect(list.pop).to eq("suu")
+    expect(list.to_string).to eq("dop woo plop")
   end
 end
