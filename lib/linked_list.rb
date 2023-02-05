@@ -11,7 +11,7 @@ class LinkedList
     else
       last_node = @head
       new_node = Node.new(sound)
-      while last_node.next_node != nil
+      until last_node.next_node.nil?
         last_node = last_node.next_node
       end
       last_node.next_node = new_node
@@ -46,13 +46,25 @@ class LinkedList
     end
   end
 
-  # def find(position, number)
-
-  # end
+  def find(position, number)
+    string_sounds = []
+    current_node = @head
+    position.times do
+      current_node = current_node.next_node
+    end
+    number.times do
+      string_sounds << current_node.data 
+      current_node = current_node.next_node
+      # require 'pry'; binding.pry
+    end
+    string_sounds.join(" ")
+  end
 
   def includes?(sound)
     if to_string.include?(sound)
       true
+    else
+      false
     end
   end
 
@@ -63,7 +75,7 @@ class LinkedList
     else
        #Looking for end of list +>(last_node.next_node = nil)
       last_node = @head
-      while last_node.next_node != nil
+      until last_node.next_node == nil
         count += 1
         last_node = last_node.next_node
       end
@@ -74,12 +86,10 @@ class LinkedList
   def to_string
     sound_string = ""
     last_node = head
-    while last_node.next_node != nil
+    until last_node.next_node == nil
       sound_string << last_node.data + " "
       last_node = last_node.next_node
     end
       sound_string << last_node.data
   end
-
-  
 end
