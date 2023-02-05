@@ -21,6 +21,7 @@ class LinkedList
 
   def prepend(sound)
     #Add node to beginning of list
+    
     if @head.nil?
       @head = Node.new(sound)
     else
@@ -91,5 +92,25 @@ class LinkedList
       last_node = last_node.next_node
     end
       sound_string << last_node.data
+  end
+
+  def pop
+    if @head.nil?
+      @head = Node.new(sound)
+    else
+      current_node = @head
+      until current_node.next_node.next_node == nil
+        #need to find the next to last node b/c the last node 
+        #is going to be removed
+        # require 'pry'; binding.pry
+        current_node = current_node.next_node
+        #setting next node to current node
+        # require 'pry'; binding.pry
+      end
+      tail = current_node.next_node
+      # require 'pry'; binding.pry
+      current_node.next_node = nil
+      tail.data
+    end
   end
 end
