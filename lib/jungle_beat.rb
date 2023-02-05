@@ -15,4 +15,9 @@ class JungleBeat
   def count
     @list.count
   end
+
+  def play
+    `say -r 100 -v Boing #{@list.to_string}`
+    # require 'pry'; binding.pry
+  end
 end
