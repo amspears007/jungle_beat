@@ -48,16 +48,17 @@ class LinkedList
   end
 
   def find(position, number)
-    string_sounds = []
+    string_sounds = ""
     current_node = @head
     position.times do
       current_node = current_node.next_node
     end
-    number.times do
-      string_sounds << current_node.data 
+    number - 1.times do
+      string_sounds += "#{current_node.data} " 
       current_node = current_node.next_node
     end
-    string_sounds.join(" ")
+    string_sounds += "#{current_node.data}"
+    string_sounds
   end
 
   def includes?(sound)
