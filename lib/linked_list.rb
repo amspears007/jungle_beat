@@ -37,13 +37,13 @@ class LinkedList
     if @head.nil?
       @head = Node.new(sound)
     else
-      last_node = @head
+      current_node = @head
       new_node = Node.new(sound)
       (position - 1).times do
-       last_node = last_node.next_node 
+       current_node = current_node.next_node 
       end
-    new_node.next_node = last_node.next_node
-    last_node.next_node = new_node
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
     end
   end
 
@@ -74,7 +74,6 @@ class LinkedList
     if @head.nil?
       count = 0
     else
-       #Looking for end of list =>(last_node.next_node = nil)
       last_node = @head
       until last_node.next_node == nil
         count += 1
