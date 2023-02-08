@@ -22,15 +22,7 @@ class LinkedList
   def prepend(sound)
     old_head = @head
     @head = Node.new(sound)
-    @head.next_node = old_head
-    # if @head.nil?
-    #   @head = Node.new(sound)
-    # else
-    #   old_head = @head
-    #   @head = Node.new(sound)
-    #   new_head = @head
-    #   @head.next_node = old_head
-    
+    @head.next_node = old_head 
   end
 
   def insert(position, sound)
@@ -99,9 +91,8 @@ class LinkedList
     else
       current_node = @head
       until current_node.next_node.next_node == nil
-        #need to find the next to last node b/c the last node is going to be remove
         current_node = current_node.next_node
-      end #setting next node to current node
+      end 
       tail = current_node.next_node
       current_node.next_node = nil
       tail.data
