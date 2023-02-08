@@ -22,42 +22,35 @@ class LinkedList
   def prepend(sound)
     old_head = @head
     @head = Node.new(sound)
-    @head.next_node = old_head
-    # if @head.nil?
-    #   @head = Node.new(sound)
-    # else
-    #   old_head = @head
-    #   @head = Node.new(sound)
-    #   new_head = @head
-    #   @head.next_node = old_head
-    
+    @head.next_node = old_head 
   end
 
   def insert(position, sound)
     if @head.nil?
       @head = Node.new(sound)
     else
-      last_node = @head
+      current_node = @head
       new_node = Node.new(sound)
       (position - 1).times do
-       last_node = last_node.next_node 
+       current_node = current_node.next_node 
       end
-    new_node.next_node = last_node.next_node
-    last_node.next_node = new_node
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
     end
   end
 
   def find(position, number)
-    string_sounds = []
+    string_sounds = ""
     current_node = @head
     position.times do
       current_node = current_node.next_node
     end
-    number.times do
-      string_sounds << current_node.data 
+    number - 1.times do
+      string_sounds += "#{current_node.data} " 
       current_node = current_node.next_node
     end
-    string_sounds.join(" ")
+    string_sounds += "#{current_node.data}"
+    string_sounds
   end
 
   def includes?(sound)
@@ -73,7 +66,6 @@ class LinkedList
     if @head.nil?
       count = 0
     else
-       #Looking for end of list =>(last_node.next_node = nil)
       last_node = @head
       until last_node.next_node == nil
         count += 1
@@ -99,9 +91,8 @@ class LinkedList
     else
       current_node = @head
       until current_node.next_node.next_node == nil
-        #need to find the next to last node b/c the last node is going to be remove
         current_node = current_node.next_node
-      end #setting next node to current node
+      end 
       tail = current_node.next_node
       current_node.next_node = nil
       tail.data

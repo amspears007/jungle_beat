@@ -17,7 +17,6 @@ class JungleBeat
   end
 
   def play
-    `say -r 100 -v Boing #{@list.to_string}`
-    # require 'pry'; binding.pry
+    `say -r 100 -v Good News #{@list.to_string}`
   end
 end
